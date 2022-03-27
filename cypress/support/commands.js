@@ -40,7 +40,7 @@ Cypress.Commands.add("addProductToBasket", productName => {
     cy.get(".fixed_wrapper .prdocutname").each(($el, index, $list) => {
         if($el.text() === productName) {
             cy.log($el.text())
-            cy.get('.productcart').eq(index).click();
+            cy.get('[title="Add to Cart"]').eq(index).click();
         }
     });
 });
