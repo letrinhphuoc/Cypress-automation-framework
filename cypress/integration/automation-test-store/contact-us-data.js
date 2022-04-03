@@ -17,7 +17,7 @@ describe("Test Contact Us form Automation Test Store", () => {
       })
       cy.get("#ContactUsFrm_email").should('have.attr', 'name', 'email')
       cy.get('#ContactUsFrm_enquiry').type("Do you provide additional discount on bulk orders?")
-      cy.get("button[title='Submit']555").click()
+      cy.get("button[title='Submit']").click()
       cy.get('.mb40 > :nth-child(3)').should('have.text', 'Your enquiry has been successfully sent to the store owner!')
       .and("contain", "successfully") 
       console.log("Test has completed!")
