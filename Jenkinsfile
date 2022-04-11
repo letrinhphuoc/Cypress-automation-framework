@@ -14,7 +14,7 @@ pipeline {
                         git url: 'https://github.com/letrinhphuoc/Cypress-automation-framework.git'
                         sh 'npm install'
                         sh 'npm update'
-                        sh 'npm run triggerAllTests-autostore-dashboard'
+                        sh 'npm run "$Script"'
                     }
                 }
                 stage('Slave Node2') {
@@ -25,7 +25,7 @@ pipeline {
                         git url: 'https://github.com/letrinhphuoc/Cypress-automation-framework.git'
                         sh 'npm install'
                         sh 'npm update'
-                        sh 'npm run triggerAllTests-autostore-dashboard'
+                        sh 'npm run "$Script"'
                     }
                 }
             }
