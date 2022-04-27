@@ -12,6 +12,7 @@
     "triggerAllTests-webdriveruni-dashboard": "npx cypress run --spec cypress/integration/webdriver-uni/* --record --key 9d22abb3-887d-4ac1-bb7d-50045191bd12 --parallel --browser chrome --headed",
     "triggerAllTests-autoTestStore": "npx cypress run --spec cypress/integration/automation-test-store/* --headed",
     "triggerAllTests-autostore-dashboard": "npx cypress run --spec cypress/integration/automation-test-store/* --record --key 9d22abb3-887d-4ac1-bb7d-50045191bd12 --parallel --browser chrome --headed",
+    "triggerAllTests-cucumberTests": "npx cypress run --spec cypress/integration/stepsDefinitions/*.feature --headed --browser chrome",
     "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
     "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
     "delete-results": "rm -rf cypress/results/* || true",
@@ -20,12 +21,12 @@
     "cypress-regression-pack": "npm run delete-results && npm run delete-mochawesome-report && npm run triggerAllTests-headless && npm run mochawesome-merge",
     "triggerAllTests-staging": "npx cypress run --config-file cypress/config/staging.json",
     "cypress-multi-browser": "npm run triggerAllTests-autostore -- --browser electron --headed & npm run triggerAllTests-autostore -- --browser edge --headed"
-
   },
   "author": "James Le",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^9.4.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-file-upload": "^5.0.8",
     "cypress-multi-reporters": "^1.5.0",
     "cypress-xpath": "^1.6.2",
@@ -34,5 +35,8 @@
     "mochawesome": "^7.1.2",
     "mochawesome-merge": "^4.2.1",
     "mochawesome-report-generator": "^6.1.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }
